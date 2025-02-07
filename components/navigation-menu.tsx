@@ -26,12 +26,14 @@ export const CustomNavigationMenu: React.FC<NavigationMenuProps> = ({
   className = "",
 }) => {
   const [section, setSection] = useState("about");
-  const hash = window && window.location.hash;
   const router = useRouter();
 
   useEffect(() => {
-    setSection(hash);
-    router.push(hash);
+    if (window) {
+      const hash = window && window.location.hash;
+      setSection(hash);
+      router.push(hash);
+    }
   }, []);
 
   useEffect(() => {
