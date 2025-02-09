@@ -10,6 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: { sans: ["var(--plex-mono)", "var(--inter)"] },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

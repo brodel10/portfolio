@@ -72,7 +72,7 @@ export const CustomNavigationMenu: React.FC<NavigationMenuProps> = ({
               <div
                 className={classnames(
                   item.href === section && "text-primary translate-x-3",
-                  "transition-transform ease-in-out duration-300 hover:translate-x-10 hover:scale-110 hover:text-primary"
+                  "transition-transform ease-in-out duration-300 hover:translate-x-10 hover:scale-110 hover:text-primary font-mono"
                 )}
               >
                 {item.text}

@@ -20,9 +20,7 @@ export interface Project {
 }
 
 export interface ArchiveProject {
-  year: string
   title: string
-  madeAt?: string
   builtWith: string[]
   links: {
     github?: string

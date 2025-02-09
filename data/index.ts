@@ -45,7 +45,7 @@ export const featuredProjects: Project[] = [
     description:
       "A notes web application. Currently in progress.",
     imageUrl: "/placeholder.svg",
-    externalUrl: "#",
+    externalUrl: "https://notes-app-sepia-two.vercel.app/",
     skills: ['React', "Typescript", "Express", "Next.js"],
     featured: true,
   },
@@ -54,14 +54,52 @@ export const featuredProjects: Project[] = [
 
 export const archiveProjects: ArchiveProject[] = [
   {
-    year: "2024",
-    title: "A Complete Accessibility Testing Guide by Klaviyo",
-    madeAt: "Klaviyo",
-    builtWith: ["Next.js", "MDX", "Tailwind CSS"],
+    title: "Product Preview Card",
+    builtWith: ["HTML", "CSS"],
     links: {
-      external: "#",
+      github: 'https://github.com/brodel10/product-preview',
+      external: "https://product-preview-blond.vercel.app/",
     },
   },
-  // Add more archive projects...
+  {
+    title: "Blog Preview Card",
+    builtWith: ["HTML", "CSS"],
+    links: {
+      github: 'https://github.com/brodel10/blog-preview-card-main',
+      external: "https://blog-preview-card-main-alpha-five.vercel.app/",
+    },
+  },
+  {
+    title: "Social Links Profile",
+    builtWith: ["HTML", "CSS", "JS"],
+    links: {
+      github: 'https://github.com/brodel10/social-links-profile',
+      external: "https://social-links-profile-nine-dusky.vercel.app/",
+    },
+  },
+  {
+    title: "Recipe Page",
+    builtWith: ["HTML", "CSS"],
+    links: {
+      github: 'https://github.com/brodel10/recipe-page',
+      external: "https://recipe-page-kappa-virid.vercel.app/",
+    },
+  },
+  {
+    title: "Testimonial Grid Section",
+    builtWith: ["HTML", "CSS"],
+    links: {
+      github: 'https://github.com/brodel10/testimonials-grid-section',
+      external: "https://testimonials-grid-section-iota-ruddy.vercel.app/",
+    },
+  },
+  {
+    title: "Feature Section",
+    builtWith: ["HTML", "CSS"],
+    links: {
+      github: 'https://github.com/brodel10/four-card-feature-section',
+      external: "https://four-card-feature-section-pi-six.vercel.app/",
+    },
+  },
 ]
 

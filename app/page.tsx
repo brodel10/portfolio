@@ -10,10 +10,10 @@ export default function Home() {
           {/* Left sidebar */}
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight text-textLight sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-textLight sm:text-5xl font-mono">
                 Rodel Advincula
               </h1>
-              <h2 className="mt-3 text-lg font-medium tracking-tight text-textLight sm:text-xl">
+              <h2 className="mt-3 text-lg font-medium tracking-tight text-textLight sm:text-xl font-mono">
                 Front End Engineer
               </h2>
               <p className="mt-4 max-w-xs leading-normal">
@@ -111,9 +111,11 @@ export default function Home() {
                             <ArrowUpRight className="ml-1 h-4 w-4" />
                           </a>
                         </h3>
-                        <p className="text-sm text-text">{experience.period}</p>
+                        <p className="text-sm text-text font-mono">
+                          {experience.period}
+                        </p>
                         {experience.roles && (
-                          <p className="text-sm text-text">
+                          <p className="text-sm text-text font-mono">
                             {experience.roles.join(" → ")}
                           </p>
                         )}
@@ -125,7 +127,7 @@ export default function Home() {
                         {experience.skills.map((skill) => (
                           <li
                             key={skill}
-                            className="bg-highlight text-primary text-xs px-3 py-1 rounded-full"
+                            className="bg-highlight text-primary text-xs px-3 py-1 rounded-full font-mono"
                           >
                             {skill}
                           </li>
@@ -168,7 +170,7 @@ export default function Home() {
                         {project.skills.map((skill) => (
                           <li
                             key={skill}
-                            className="bg-highlight text-primary text-xs px-3 py-1 rounded-full"
+                            className="bg-highlight text-primary text-xs px-3 py-1 rounded-full font-mono"
                           >
                             {skill}
                           </li>
@@ -177,8 +179,11 @@ export default function Home() {
                     </div>
                     <div className="z-10 lg:col-span-7">
                       <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-secondary">
-                        {/* Replace with actual image component when available */}
-                        <div className="absolute inset-0 bg-gray-800"></div>
+                        <img
+                          src="notes-placeholder.png"
+                          alt=""
+                          className="absolute inset-0"
+                        />
                       </div>
                     </div>
                   </div>
@@ -191,24 +196,18 @@ export default function Home() {
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             >
               <h2 className="text-2xl font-semibold text-textLight mb-8">
-                Archive
+                Mini Component Library
               </h2>
               <table className="w-full border-collapse text-left">
                 <thead className="border-b border-highlight">
                   <tr>
                     <th className="py-4 pr-8 text-sm font-semibold text-textLight">
-                      Year
-                    </th>
-                    <th className="py-4 pr-8 text-sm font-semibold text-textLight">
                       Project
-                    </th>
-                    <th className="hidden py-4 pr-8 text-sm font-semibold text-textLight lg:table-cell">
-                      Made at
                     </th>
                     <th className="hidden py-4 pr-8 text-sm font-semibold text-textLight lg:table-cell">
                       Built with
                     </th>
-                    <th className="hidden py-4 text-sm font-semibold text-textLight lg:table-cell">
+                    <th className="py-4 text-sm font-semibold text-textLight">
                       Link
                     </th>
                   </tr>
@@ -216,7 +215,6 @@ export default function Home() {
                 <tbody>
                   {archiveProjects.map((project, index) => (
                     <tr key={index} className="border-b border-highlight">
-                      <td className="py-4 pr-8 text-sm">{project.year}</td>
                       <td className="py-4 pr-8 text-sm">
                         <a
                           href={project.links.external || "#"}
@@ -225,13 +223,10 @@ export default function Home() {
                           {project.title}
                         </a>
                       </td>
-                      <td className="hidden py-4 pr-8 text-sm lg:table-cell">
-                        {project.madeAt}
-                      </td>
-                      <td className="hidden py-4 pr-8 text-sm lg:table-cell">
+                      <td className="hidden py-4 pr-8 text-sm lg:table-cell font-mono">
                         {project.builtWith.join(", ")}
                       </td>
-                      <td className="hidden py-4 text-sm lg:table-cell">
+                      <td className="py-4 text-sm">
                         <div className="flex items-center gap-3">
                           {project.links.github && (
                             <a
