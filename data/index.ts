@@ -1,4 +1,4 @@
-import type { Experience, Project, ArchiveProject } from "@/types"
+import type { Experience, Project, MiniComponentLibrary } from "@/types"
 
 export const experiences: Experience[] = [
   {
@@ -39,9 +39,9 @@ export const experiences: Experience[] = [
   },
 ]
 
-export const featuredProjects: Project[] = [
+export const projects: Project[] = [
   {
-    title: "Build a Notes Web Application",
+    title: "Notes Web Application",
     description:
       "A notes web application. Currently in progress.",
     imageUrl: "/placeholder.svg",
@@ -49,10 +49,9 @@ export const featuredProjects: Project[] = [
     skills: ['React', "Typescript", "Express", "Next.js"],
     featured: true,
   },
-  // Add more featured projects...
 ]
 
-export const archiveProjects: ArchiveProject[] = [
+export const miniComponentLibrary: MiniComponentLibrary[] = [
   {
     title: "Product Preview Card",
     builtWith: ["HTML", "CSS"],

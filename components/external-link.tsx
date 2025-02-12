@@ -1,10 +1,10 @@
-import type { FC } from "react"
-import { ArrowUpRight } from "lucide-react"
-import type React from "react" // Added import for React
+import type { FC } from "react";
+import { ArrowUpRight } from "lucide-react";
+import type React from "react";
 
 interface ExternalLinkProps {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }
 
 export const ExternalLink: FC<ExternalLinkProps> = ({ href, children }) => {
@@ -18,6 +18,5 @@ export const ExternalLink: FC<ExternalLinkProps> = ({ href, children }) => {
       {children}
       <ArrowUpRight className="w-4 h-4 ml-1 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
     </a>
-  )
-}
-
+  );
+};
