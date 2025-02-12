@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-background text-text">
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 snap">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
@@ -296,10 +296,7 @@ export default async function Home() {
               </table>
             </section>
 
-            <section
-              id="life"
-              className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-            >
+            <section id="life" className="scroll-mt-16 lg:scroll-mt-24">
               <h2 className="text-2xl font-semibold text-textLight mb-8">
                 Checkout My Life In Motion
               </h2>
@@ -329,9 +326,9 @@ export default async function Home() {
                 ))}
                 <Link
                   href={"/life"}
-                  className="place-self-end md:col-span-2 text-textLight font-mono cursor-pointer hover:-translate-y-1 hover:translate-x-1 hover:text-primary p-x-1"
+                  className="place-self-end md:col-span-2 text-textLight font-mono cursor-pointer lg:hover:-translate-y-1 lg:hover:translate-x-1 lg:hover:text-primary p-x-1"
                 >
-                  see all...
+                  see more...
                 </Link>
               </div>
             </section>

@@ -35,7 +35,7 @@ export default function VideoCard({
 
   return (
     <>
-      <div className="w-full transition ease-in-out duration-300 group-hover:-translate-y-1 cursor-pointer">
+      <div className="w-full transition ease-in-out duration-300 lg:group-hover:-translate-y-1 cursor-pointer">
         <div
           className="relative mb-3 w-full"
           onClick={() => setIsModalOpen(true)}
