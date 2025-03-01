@@ -164,7 +164,7 @@ export async function refreshAccessToken(
     });
 
     const data = await response.json();
-
+    console.log(data);
     if (!response.ok) {
       // throw new Error(`Error refreshing token: ${data.error}`);
       console.log(`Error refreshing token: ${data.error}`);
