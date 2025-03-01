@@ -77,12 +77,21 @@ export async function fetchChannelInfo(CHANNEL_ID = "", API_KEY = "") {
   }
 }
 
-export const fetchVideosByIds = async (videoIds?: string[]) => {
+export const fetchVideosByIds = async (
+  videoIds?: string[],
+  CLIENT_ID: string | undefined,
+  CLIENT_SECRET: string | undefined,
+  REFRESH_TOKEN: string | undefined
+) => {
   const ids =
     videoIds && videoIds.length > 0
       ? videoIds
       : ["HUIjvJTU2Jo", "fKbAHZc6KnE", "yErR2a9vlTA", "85TuR98euuM"];
-  const accessToken = await refreshAccessToken();
+  const accessToken = await refreshAccessToken(
+    CLIENT_ID,
+    CLIENT_SECRET,
+    REFRESH_TOKEN
+  );
   const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&mine=true&id=${ids}`;
   if (!accessToken) {
     // throw new Error("Failed to retrieve access token");
@@ -100,8 +109,16 @@ export const fetchVideosByIds = async (videoIds?: string[]) => {
   return data.items;
 };
 
-export const getAllVideosByClient = async () => {
-  const accessToken = await refreshAccessToken();
+export const getAllVideosByClient = async (
+  CLIENT_ID: string | undefined,
+  CLIENT_SECRET: string | undefined,
+  REFRESH_TOKEN: string | undefined
+) => {
+  const accessToken = await refreshAccessToken(
+    CLIENT_ID,
+    CLIENT_SECRET,
+    REFRESH_TOKEN
+  );
 
   if (!accessToken) {
     // throw new Error("Failed to retrieve access token");
@@ -121,10 +138,14 @@ export const getAllVideosByClient = async () => {
   return data;
 };
 
-export async function refreshAccessToken() {
-  const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-  const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-  const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+export async function refreshAccessToken(
+  CLIENT_ID: string | undefined,
+  CLIENT_SECRET: string | undefined,
+  REFRESH_TOKEN: string | undefined
+) {
+  // const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+  // const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+  // const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
   try {
     const response = await fetch("https://oauth2.googleapis.com/token", {

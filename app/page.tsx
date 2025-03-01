@@ -12,7 +12,15 @@ const VideoSection = dynamic(() => import("@/components/video-section"), {
 });
 
 export default async function Home() {
-  const videos = await fetchVideosByIds();
+  const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+  const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+  const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+  const videos = await fetchVideosByIds(
+    [],
+    CLIENT_ID,
+    CLIENT_SECRET,
+    REFRESH_TOKEN
+  );
   const channelInfo = await fetchChannelInfo(
     process.env.CHANNEL_ID,
     process.env.API_KEY
