@@ -48,7 +48,7 @@ const VideoGrid: React.FC<VideoGridProps> = ({ videos, channelInfo }) => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      {videos.map((video: YouTubeVideoDetails, index: number) => (
+      {(videos || [])?.map((video: YouTubeVideoDetails, index: number) => (
         <div
           key={video.etag}
           className={`group relative w-full max-w-xl md:max-w-xs transition-all duration-750 ease-out ${
