@@ -1,13 +1,14 @@
-import type { FC } from "react"
-import Image from "next/image"
-import type { Project } from "@/types"
-import { ExternalLink } from "./external-link"
+import type { FC } from "react";
+import Image from "next/image";
+import type { Project } from "@/types";
+import { ExternalLink } from "./external-link";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
+  console.log(project);
   return (
     <div className="group relative grid gap-4 pb-1">
       <div className="relative aspect-video overflow-hidden rounded-lg bg-slate-800">
@@ -25,13 +26,15 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
         <p className="mt-2 text-sm text-slate-400">{project.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.skills.map((skill) => (
-            <span key={skill} className="bg-highlight text-primary text-xs px-3 py-1 rounded-full">
+            <span
+              key={skill}
+              className="bg-highlight text-primary text-xs px-3 py-1 rounded-full"
+            >
               {skill}
             </span>
           ))}
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};

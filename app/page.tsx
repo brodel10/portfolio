@@ -184,9 +184,9 @@ export default async function Home() {
                           <div className="z-10 lg:col-span-7">
                             <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-secondary">
                               <img
-                                src="notes-placeholder.png"
+                                src={project?.imageUrl}
                                 alt=""
-                                className="absolute inset-0 aspect-[16/9]"
+                                className="absolute object-cover inset-0 aspect-[16/9]"
                               />
                             </div>
                           </div>
@@ -209,7 +209,7 @@ export default async function Home() {
                     <div className="z-10 lg:col-span-3 order-2 lg:order-1">
                       <div className="relative h-full overflow-hidden rounded-lg">
                         <img
-                          src="notes-placeholder.png"
+                          src={project?.imageUrl}
                           alt="notes-app"
                           className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
                         />

@@ -63,7 +63,7 @@ export const projects: Project[] = [
   {
     title: "Notes Web Application",
     description: "A notes web application. Currently in progress.",
-    imageUrl: "/placeholder.svg",
+    imageUrl: "notes-placeholder.png",
     externalUrl: "https://notes-app-sepia-two.vercel.app/",
     skills: ["React", "Typescript", "Express", "Next.js"],
     featured: false,
@@ -71,7 +71,7 @@ export const projects: Project[] = [
   {
     title: "Elenita's Resort & Villas",
     description: "A Villa Resort in the Philippines.",
-    imageUrl: "/resort.png",
+    imageUrl: "resort.png",
     externalUrl: "https://elenitas-resort.vercel.app",
     skills: ["React", "Typescript", "Supabase", "Vite"],
     featured: true,
