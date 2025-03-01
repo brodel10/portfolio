@@ -45,7 +45,7 @@ export async function fetchYouTubeVideos(API_KEY = "", CHANNEL_ID = "") {
       console.error("No videos found");
     }
   } catch (error) {
-    console.error("Error fetching videos:", error);
+    console.log("Error fetching videos:", error);
   }
 }
 
@@ -85,7 +85,8 @@ export const fetchVideosByIds = async (videoIds?: string[]) => {
   const accessToken = await refreshAccessToken();
   const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&mine=true&id=${ids}`;
   if (!accessToken) {
-    throw new Error("Failed to retrieve access token");
+    // throw new Error("Failed to retrieve access token");
+    console.log("Failed to retrieve access token");
   }
 
   const response = await fetch(url, {
@@ -103,7 +104,8 @@ export const getAllVideosByClient = async () => {
   const accessToken = await refreshAccessToken();
 
   if (!accessToken) {
-    throw new Error("Failed to retrieve access token");
+    // throw new Error("Failed to retrieve access token");
+    console.log("Failed to retrieve access token");
   }
   const url =
     "https://www.googleapis.com/youtube/v3/search?part=snippet&forMine=true&type=video&maxResults=50";
@@ -141,12 +143,13 @@ export async function refreshAccessToken() {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(`Error refreshing token: ${data.error}`);
+      // throw new Error(`Error refreshing token: ${data.error}`);
+      console.log(`Error refreshing token: ${data.error}`);
     }
 
     return data.access_token;
   } catch (error) {
-    console.error("Failed to refresh token:", error);
+    console.log("Failed to refresh token:", error);
     return null;
   }
 }
