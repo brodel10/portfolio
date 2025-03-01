@@ -309,12 +309,14 @@ export default async function Home() {
               </table>
             </section>
 
-            <section id="life" className="scroll-mt-16 lg:scroll-mt-24">
-              <h2 className="text-2xl font-semibold text-textLight mb-8">
-                Checkout My Life In Motion
-              </h2>
-              <VideoSection videos={videos} channelInfo={channelInfo} />
-            </section>
+            {videos && videos?.length > 0 && (
+              <section id="life" className="scroll-mt-16 lg:scroll-mt-24">
+                <h2 className="text-2xl font-semibold text-textLight mb-8">
+                  Checkout My Life In Motion
+                </h2>
+                <VideoSection videos={videos} channelInfo={channelInfo} />
+              </section>
+            )}
           </main>
         </div>
       </div>
