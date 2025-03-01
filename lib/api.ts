@@ -160,7 +160,7 @@ export async function refreshAccessToken(
         client_secret: CLIENT_SECRET!,
         refresh_token: REFRESH_TOKEN!,
         grant_type: "refresh_token",
-      }),
+      }).toString(),
     });
 
     const data = await response.json();
