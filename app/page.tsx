@@ -5,6 +5,11 @@ import { Github, Linkedin, Youtube, ArrowUpRight, Globe } from "lucide-react";
 import VideoThumbnail from "@/components/video-thumbnail";
 import { fetchChannelInfo, fetchVideosByIds } from "@/lib/api";
 import { YouTubeVideoDetails } from "@/types";
+import dynamic from "next/dynamic";
+
+const VideoSection = dynamic(() => import("@/components/video-section"), {
+  ssr: false,
+});
 
 export default async function Home() {
   const videos = await fetchVideosByIds();
@@ -300,37 +305,7 @@ export default async function Home() {
               <h2 className="text-2xl font-semibold text-textLight mb-8">
                 Checkout My Life In Motion
               </h2>
-
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 gap-4"
-                // className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-1 md:grid-cols-2"
-              >
-                {videos.map((video: YouTubeVideoDetails) => (
-                  <div
-                    key={video.etag}
-                    className="group relative w-full max-w-xl md:max-w-xs"
-                  >
-                    <VideoThumbnail
-                      title={video.snippet.title}
-                      channelName={video.snippet.channelTitle}
-                      thumbnailUrl={video.snippet.thumbnails.high.url}
-                      profileImageUrl={
-                        channelInfo[0].snippet.thumbnails.default.url
-                      }
-                      views={video.statistics.viewCount}
-                      duration={video.contentDetails.duration}
-                      publishedTime={video.snippet.publishedAt}
-                      videoId={video.id}
-                    />
-                  </div>
-                ))}
-                <Link
-                  href={"/life"}
-                  className="place-self-end md:col-span-2 text-textLight font-mono cursor-pointer lg:hover:-translate-y-1 lg:hover:translate-x-1 lg:hover:text-primary p-x-1"
-                >
-                  see more...
-                </Link>
-              </div>
+              <VideoSection videos={videos} channelInfo={channelInfo} />
             </section>
           </main>
         </div>
