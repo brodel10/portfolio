@@ -77,37 +77,53 @@ export async function fetchChannelInfo(CHANNEL_ID = "", API_KEY = "") {
   }
 }
 
-export const fetchVideosByIds = async (
-  videoIds?: string[],
-  CLIENT_ID: string | undefined,
-  CLIENT_SECRET: string | undefined,
-  REFRESH_TOKEN: string | undefined
-) => {
-  const ids =
-    videoIds && videoIds.length > 0
-      ? videoIds
-      : ["HUIjvJTU2Jo", "fKbAHZc6KnE", "yErR2a9vlTA", "85TuR98euuM"];
-  const accessToken = await refreshAccessToken(
-    CLIENT_ID,
-    CLIENT_SECRET,
-    REFRESH_TOKEN
-  );
-  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&mine=true&id=${ids}`;
-  if (!accessToken) {
-    // throw new Error("Failed to retrieve access token");
-    console.log("Failed to retrieve access token");
+export const getVideos = async (API_KEY = "") => {
+  const videoIds = ["HUIjvJTU2Jo", "fKbAHZc6KnE", "yErR2a9vlTA", "85TuR98euuM"];
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoIds.join(
+    ","
+  )}&key=${API_KEY}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data?.items;
+  } catch (error) {
+    console.error("Error fetching videos:", error);
   }
-
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      Accept: "application/json",
-    },
-  });
-
-  const data = await response.json();
-  return data.items;
 };
+
+// REQUIRES NEW REFRESH_TOKEN
+// export const fetchVideosByIds = async (
+//   videoIds?: string[],
+//   CLIENT_ID: string | undefined,
+//   CLIENT_SECRET: string | undefined,
+//   REFRESH_TOKEN: string | undefined
+// ) => {
+//   const ids =
+//     videoIds && videoIds.length > 0
+//       ? videoIds
+//       : ["HUIjvJTU2Jo", "fKbAHZc6KnE", "yErR2a9vlTA", "85TuR98euuM"];
+//   const accessToken = await refreshAccessToken(
+//     CLIENT_ID,
+//     CLIENT_SECRET,
+//     REFRESH_TOKEN
+//   );
+//   const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&mine=true&id=${ids}`;
+//   if (!accessToken) {
+//     // throw new Error("Failed to retrieve access token");
+//     console.log("Failed to retrieve access token");
+//   }
+
+//   const response = await fetch(url, {
+//     headers: {
+//       Authorization: `Bearer ${accessToken}`,
+//       Accept: "application/json",
+//     },
+//   });
+
+//   const data = await response.json();
+//   return data.items;
+// };
 
 export const getAllVideosByClient = async (
   CLIENT_ID: string | undefined,

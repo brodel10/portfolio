@@ -3,7 +3,7 @@ import { CustomNavigationMenu } from "@/components/navigation-menu";
 import Link from "next/link";
 import { Github, Linkedin, Youtube, ArrowUpRight, Globe } from "lucide-react";
 import VideoThumbnail from "@/components/video-thumbnail";
-import { fetchChannelInfo, fetchVideosByIds } from "@/lib/api";
+import { fetchChannelInfo, fetchVideosByIds, getVideos } from "@/lib/api";
 import { YouTubeVideoDetails } from "@/types";
 import dynamic from "next/dynamic";
 
@@ -15,12 +15,14 @@ export default async function Home() {
   const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
   const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
   const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
-  const videos = await fetchVideosByIds(
-    [],
-    CLIENT_ID,
-    CLIENT_SECRET,
-    REFRESH_TOKEN
-  );
+  const API_KEY = process.env.API_KEY;
+  // const videos = await fetchVideosByIds(
+  //   [],
+  //   CLIENT_ID,
+  //   CLIENT_SECRET,
+  //   REFRESH_TOKEN
+  // );
+  const videos = await getVideos(API_KEY);
   const channelInfo = await fetchChannelInfo(
     process.env.CHANNEL_ID,
     process.env.API_KEY

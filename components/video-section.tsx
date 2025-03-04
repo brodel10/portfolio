@@ -78,6 +78,7 @@ const VideoGrid: React.FC<VideoGridProps> = ({ videos, channelInfo }) => {
       >
         <Link
           href={"https://www.youtube.com/@brodelridesbikes"}
+          target="_blank"
           className="text-textLight font-mono cursor-pointer lg:hover:-translate-y-1 lg:hover:translate-x-1 lg:hover:text-primary p-x-1"
         >
           see more...

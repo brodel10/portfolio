@@ -61,6 +61,14 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Elenita's Resort & Villas",
+    description: "A Villa Resort in the Philippines.",
+    imageUrl: "resort.png",
+    externalUrl: "https://elenitas-resort.vercel.app",
+    skills: ["React", "Typescript", "Supabase", "Vite"],
+    featured: true,
+  },
+  {
     title: "Notes Web Application",
     description: "A notes web application. Currently in progress.",
     imageUrl: "notes-placeholder.png",
@@ -69,12 +77,20 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    title: "Elenita's Resort & Villas",
-    description: "A Villa Resort in the Philippines.",
-    imageUrl: "resort.png",
-    externalUrl: "https://elenitas-resort.vercel.app",
-    skills: ["React", "Typescript", "Supabase", "Vite"],
-    featured: true,
+    title: "Personal Portfolio Boilerplate",
+    description: "A Boilerplate for personal portfolio's",
+    imageUrl: "portfolio-boilerplate.png",
+    externalUrl: "https://boilerplate-portfolio.vercel.app/",
+    skills: ["React", "Typescript", "Next.js"],
+    featured: false,
+  },
+  {
+    title: "Business Boilerplate",
+    description: "A boilerplate for business",
+    imageUrl: "business-boilerplate.png",
+    externalUrl: "https://boilerplate-business.vercel.app/",
+    skills: ["React", "Typescript", "Next.js"],
+    featured: false,
   },
 ];
 
